@@ -5,9 +5,25 @@
 #
 
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
+
+# Kernel
+BOARD_KERNEL_IMAGE_NAME := Image.lz4
+TARGET_KERNEL_CONFIG := slider_gki_defconfig
+TARGET_KERNEL_SOURCE := kernel/google/gs101/private/gs-google
+TARGET_NEEDS_DTBOIMAGE := true
+
+# *** Uses prebuilt kernel for now. ***
+TARGET_FORCE_PREBUILT_KERNEL := true
+TARGET_PREBUILT_KERNEL := $(TARGET_KERNEL_DIR)/Image.lz4
+PRODUCT_COPY_FILES += \
+    $(TARGET_PREBUILT_KERNEL):kernel \
+
+# Kernel modules
+TARGET_KERNEL_EXT_MODULE_ROOT := kernel/google/gs101/private/google-modules
 
 # Manifests
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += vendor/calyx/config/device_framework_matrix.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += vendor/evolution/config/device_framework_matrix.xml
 DEVICE_MANIFEST_FILE += device/google/gs101/manifest_radio.xml
 
 # Partitions
