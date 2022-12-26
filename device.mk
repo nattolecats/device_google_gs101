@@ -1118,8 +1118,8 @@ PRODUCT_PROPERTY_OVERRIDES += persist.vendor.enable.thermal.genl=true
 include device/google/gs101/edgetpu/edgetpu.mk
 
 # Connectivity Thermal Power Manager
-PRODUCT_PACKAGES += \
-	ConnectivityThermalPowerManager
+#PRODUCT_PACKAGES += \
+#	ConnectivityThermalPowerManager
 
 # A/B support
 PRODUCT_PACKAGES += \
