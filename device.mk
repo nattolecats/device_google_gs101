@@ -444,6 +444,10 @@ PRODUCT_COPY_FILES += \
 # IRQ rebalancing.
 include hardware/google/pixel/rebalance_interrupts/rebalance_interrupts.mk
 
+# Google Battery HAL
+PRODUCT_PACKAGES += \
+    vendor.google.google_battery@1.1
+
 # PowerStats HAL
 PRODUCT_PACKAGES += \
 	android.hardware.power.stats-service.pixel

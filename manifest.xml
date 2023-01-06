@@ -133,13 +133,10 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="aidl">
+    <hal format="hidl">
         <name>vendor.google.google_battery</name>
-        <version>1</version>
-        <interface>
-            <name>IGoogleBattery</name>
-            <instance>default</instance>
-        </interface>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::IGoogleBattery/default</fqname>
     </hal>
     <hal format="hidl">
        <name>vendor.google.whitechapel.audio.audioext</name>
