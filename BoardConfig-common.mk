@@ -16,6 +16,8 @@
 include build/make/target/board/BoardConfigMainlineCommon.mk
 include build/make/target/board/BoardConfigPixelCommon.mk
 
+TARGET_KERNEL_DIR := device/google/bluejay-kernel
+
 # Should be uncommented after fixing vndk-sp violation is fixed.
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
@@ -41,6 +43,13 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
+endif
+
+# Use SELinux Permissive mode in eng build
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
+else
+BOARD_KERNEL_CMDLINE := androidboot.selinux=enforcing
 endif
 
 BOARD_KERNEL_CMDLINE += dyndbg=\"func alloc_contig_dump_pages +p\"
